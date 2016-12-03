@@ -1,16 +1,24 @@
 import React from 'react';
+import axios from 'axios';
+import Loading from '../component/Loading';
 import BlogCard from '../component/BlogCard';
-let data=[
-  {index:1,title:"hello",desc:"11111"},
-  {index:1,title:"hello",desc:"2222222"},
-  {index:1,title:"hello",desc:"33333333"}
-]
 class Blog extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      data:[],
+      wait:true
+    }
+  }
+  componentDidMount(){
+    axios.get("https://raw.githubusercontent.com/happyze/08-demo/master/data/blogcard.json")
+      .then(res=> this.setState({data:res.data,wait:false}))
+  }
   render () {
-    let cards=data.map((item,i) => <BlogCard {...item} key={i} />)
+    // let cards=data.map((item,i) => <BlogCard {...item} key={i} />)
     return(
       <div className="blog-warp">
-        {cards}
+        {this.state.wait?<Loading />:this.state.data.map((item,i) =><BlogCard {...item} key={i}/>)}
       </div>
     )
   }
