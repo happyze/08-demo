@@ -26,7 +26,7 @@ class Item extends React.Component {
       <div>
         {
           this.state.data.length == 0?<Loading/>:
-          <div dangerouslySetInnerHTML={{__html:marked(this.state.data)}}/>
+          <div className="post-content" dangerouslySetInnerHTML={{__html:marked(this.state.data)}}/>
         }
       </div>
     )

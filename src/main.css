@@ -19,6 +19,32 @@ btn:active:focus, .btn:focus {
   flex-direction: column;
   height: 100vh;
 }
+@media (min-width: 760px){
+  .my-wrap{
+    flex-direction: row;
+  }
+}
+.leftNav-wrap{
+  width: 260px;
+  background-color: #FF3366;
+  text-align: center;
+  color: #fff;
+}
+.leftNav-wrap h3{
+  border-bottom: 2px solid #455A64;
+  margin: 0;
+  padding: 20px 0;
+}
+.leftNav-wrap a{
+  display: block;
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.leftNav-wrap a:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
 .nav-header h3{
   margin: 0;
   color: #fff;
