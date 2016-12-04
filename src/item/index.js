@@ -1,6 +1,8 @@
 import React from 'react';
 import marked from 'marked';
+import hljs from 'highlight.js';
 import axios from 'axios';
+// import "../post.css" ;
 import Loading from '../component/Loading';
 class Item extends React.Component {
   constructor(){
@@ -12,9 +14,15 @@ class Item extends React.Component {
   componentDidMount(){
     let address = this.props.params.title;
     axios.get(`https://raw.githubusercontent.com/happyze/08-demo/master/data/${address}.md`)
-    .then(res => this.setState({data:res.data}))    
+    .then(res => this.setState({data:res.data}))
   }
   render () {
+    marked.setOptions({
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+
     return(
       <div>
         {
