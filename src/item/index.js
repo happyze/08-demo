@@ -2,6 +2,7 @@ import React from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import axios from 'axios';
+import "highlight.js/styles/default.css";
 // import "../post.css" ;
 import Loading from '../component/Loading';
 class Item extends React.Component {
